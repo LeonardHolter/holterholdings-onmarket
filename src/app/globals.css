@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f5f5f4;
+  --foreground: #18181b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* ------------------------------------------------------------------ */
+/*  AG Grid – custom design                                            */
+/* ------------------------------------------------------------------ */
+.ag-theme-alpine {
+  --ag-font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  --ag-font-size: 14px;
+  --ag-row-height: 48px;
+  --ag-header-height: 44px;
+
+  --ag-background-color: #ffffff;
+  --ag-foreground-color: #18181b;
+  --ag-odd-row-background-color: #fafafa;
+
+  --ag-header-background-color: #18181b;
+  --ag-header-foreground-color: #fafafa;
+
+  --ag-border-color: #e4e4e7;
+  --ag-row-border-color: #f1f1f1;
+
+  --ag-row-hover-color: #fef9c3;
+  --ag-selected-row-background-color: #fef3c7;
+  --ag-range-selection-background-color: rgba(234, 179, 8, 0.15);
+  --ag-range-selection-border-color: #eab308;
+
+  --ag-input-focus-border-color: #18181b;
+  --ag-input-focus-box-shadow: 0 0 0 2px rgba(24, 24, 27, 0.12);
+
+  --ag-cell-horizontal-padding: 14px;
+
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e4e4e7;
+}
+
+/* Header styling */
+.ag-theme-alpine .ag-header {
+  border-bottom: 2px solid #18181b;
+}
+
+.ag-theme-alpine .ag-header-cell {
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ag-theme-alpine .ag-header,
+.ag-theme-alpine .ag-header-row,
+.ag-theme-alpine .ag-header-cell-label,
+.ag-theme-alpine .ag-header-cell-text,
+.ag-theme-alpine .ag-header-group-cell-label,
+.ag-theme-alpine .ag-header-group-text {
+  color: #fafafa !important;
+}
+
+.ag-theme-alpine .ag-header-cell-resize::after {
+  background-color: #52525b;
+  opacity: 0.6;
+  width: 1px;
+}
+
+.ag-theme-alpine .ag-header-cell-menu-button,
+.ag-theme-alpine .ag-header-icon,
+.ag-theme-alpine .ag-sort-indicator-icon,
+.ag-theme-alpine .ag-filter-icon {
+  color: #d4d4d8 !important;
+  fill: #d4d4d8 !important;
+  opacity: 0.8;
+}
+
+.ag-theme-alpine .ag-icon {
+  color: #d4d4d8;
+}
+
+/* Row styling */
+.ag-theme-alpine .ag-row {
+  transition: background-color 0.15s ease;
+}
+
+.ag-theme-alpine .ag-row-hover {
+  cursor: cell;
+}
+
+.ag-theme-alpine .ag-cell {
+  display: flex;
+  align-items: center;
+  line-height: 1.5;
+  border-right: 1px solid #f4f4f5;
+}
+
+.ag-theme-alpine .ag-cell:focus-within {
+  box-shadow: inset 0 0 0 2px #18181b;
+  border-radius: 2px;
+}
+
+.ag-theme-alpine .ag-cell-value {
+  width: 100%;
+}
+
+/* Pinned columns - slight separation */
+.ag-theme-alpine .ag-pinned-left-cols-container .ag-cell {
+  background-color: inherit;
+  font-weight: 500;
+}
+
+.ag-theme-alpine .ag-pinned-left-header,
+.ag-theme-alpine .ag-pinned-left-cols-container {
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.04);
+  z-index: 1;
+}
+
+/* Inputs inside cells (editors) */
+.ag-theme-alpine .ag-cell-inline-editing {
+  padding: 0 10px;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 2px #18181b;
+  background: #fffbeb;
+  height: 100%;
+}
+
+.ag-theme-alpine .ag-input-field-input {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* Select editor dropdowns */
+.ag-theme-alpine .ag-select-list {
+  border: 1px solid #e4e4e7;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.ag-theme-alpine .ag-list-item {
+  padding: 8px 12px;
+}
+
+.ag-theme-alpine .ag-list-item.ag-active-item {
+  background-color: #18181b;
+  color: #fafafa;
+}
+
+/* Scrollbars */
+.ag-theme-alpine .ag-body-viewport::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+
+.ag-theme-alpine .ag-body-viewport::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 999px;
+}
+
+.ag-theme-alpine .ag-body-viewport::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+
+/* Age badge pill (used in DealGrid/Brokers Days columns) */
+.age-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Broker row flag – not contacted in 2+ weeks */
+.ag-theme-alpine .ag-row.row-needs-contact {
+  background-color: #fef2f2 !important;
+  box-shadow: inset 3px 0 0 #dc2626;
+}
+
+.ag-theme-alpine .ag-row.row-needs-contact.ag-row-hover {
+  background-color: #fee2e2 !important;
+}
+
+.ag-theme-alpine .ag-row.row-needs-contact .ag-cell {
+  color: #7f1d1d;
+}
