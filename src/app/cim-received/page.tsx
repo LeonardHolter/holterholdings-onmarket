@@ -119,6 +119,7 @@ export default function CimReceivedPage() {
       title="CIM Received"
       subtitle="Deals where the Confidential Information Memorandum has been received"
       extraColumns={extraColumns}
+      hideBaseFields={["location"]}
     />
   );
 }
